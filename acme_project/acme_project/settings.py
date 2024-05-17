@@ -9,14 +9,15 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'pages.apps.PagesConfig',
+    'birthday.apps.BirthdayConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'birthday.apps.BirthdayConfig',
-    'pages.apps.PagesConfig',
+    'django_bootstrap5',
 ]
 
 MIDDLEWARE = [
@@ -30,6 +31,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'acme_project.urls'
+
+MEDIA_ROOT = BASE_DIR / 'media'
 
 TEMPLATES_DIR = BASE_DIR / 'templates'
 
