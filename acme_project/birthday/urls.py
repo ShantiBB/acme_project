@@ -17,4 +17,9 @@ urlpatterns = [
         views.BirthdayDeleteView.as_view(),
         name='delete'
     ),
+    path(
+        '<int:pk>/',
+        views.BirthdayDetailView.as_view(),
+        name='detail'
+    ),
 ]

@@ -1,4 +1,6 @@
 from django.db import models
+from django.urls import reverse
+from django.contrib.auth.models import User
 
 from .validators import real_age
 
@@ -22,4 +24,16 @@ class Birthday(models.Model):
             name='Unique person constraint',
         ),
     )
+    author = models.ForeignKey(
+        User, verbose_name='Автор записи', on_delete=models.CASCADE,
+        null=True
+    )
     objects = models.Manager()
+
+    def get_absolute_url(self):
+        return reverse(
+            'birthday:detail', kwargs={'pk': self.pk}
+        )
+
+    def __str__(self):
+        return f'{self.first_name} {self.last_name}'

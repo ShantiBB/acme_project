@@ -4,7 +4,6 @@ from datetime import date
 def calculate_birthday_countdown(birthday):
     """
     Возвращает количество дней до следующего дня рождения.
-
     Если день рождения сегодня, то возвращает 0.
     """
     today = date.today()
@@ -14,9 +13,6 @@ def calculate_birthday_countdown(birthday):
         next_birthday = get_birthday_for_year(birthday, today.year + 1)
     else:
         next_birthday = this_year_birthday
-
-    # Считаем разницу между следующим днём рождения
-    # и сегодняшним днём в днях.
     birthday_countdown = (next_birthday - today).days
     return birthday_countdown
 
@@ -24,7 +20,6 @@ def calculate_birthday_countdown(birthday):
 def get_birthday_for_year(birthday, year):
     """
     Получает дату дня рождения для конкретного года.
-
     Ошибка ValueError возможна только в случае
     с високосными годами и ДР 29 февраля.
     В этом случае приравниваем дату ДР к 1 марта.
